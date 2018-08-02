@@ -46,9 +46,22 @@ function tweets() {
     })
 };
 
-function spotifyThis(input) {
+function spotifyThis() {
     if (!input) {
-        input = "the sign";
-        console.log()
+        input = "The Sign";
     }
-}
+    spotify.search({ type: "track", query: input }, function(err, data) {
+        if (err) {
+            console.log(err);
+            return;
+        }
+
+        var songData = data.tracks.items;
+        console.log("Artist(s): " + songData[0].artists[0].name + 
+        "\nSong: " + songData[0].name + 
+        "\nPreview: " + songData[0].preview_url +
+        "\nAlbum: " + songData[0].album.name);
+});
+
+
+};
