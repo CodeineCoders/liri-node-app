@@ -19,17 +19,17 @@ switch (argument) {
         break;
 
 
-    // case "spotify-this-song": 
-    //     spotifyThis();
-    //     break;
+    case "spotify-this-song": 
+        spotifyThis();
+        break;
 
-    // case "movie-this":
-    //     movieThis();
-    //     break;
+    case "movie-this":
+        movieThis();
+        break;
 
-    // case "do-what-it-says":
-    //     doThis();
-    //     break;
+    case "do-what-it-says":
+        doThis();
+        break;
 
 }
 
@@ -44,4 +44,11 @@ function tweets() {
         }
 
     })
+};
+
+function spotifyThis(input) {
+    if (!input) {
+        input = "the sign";
+        console.log()
+    }
 }
