@@ -65,5 +65,11 @@ function spotifyThis() {
 };
 
 function movieThis() {
-    
+    request("http://www.omdbapi.com/?t=" + input + "&y=&plot=short&apikey=trilogy", function (err, response, body) {
+        if (!err && response.statusCode === 200) {
+            console.log("Movie: " + JSON.parse(body).Title +
+                "\nYear: " + JSON.parse(body).Year +
+                "\nRating: " + JSON.parse(body).imdbRating);
+        }
+    })
 }
