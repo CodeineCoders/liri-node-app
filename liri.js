@@ -69,7 +69,24 @@ function movieThis() {
         if (!err && response.statusCode === 200) {
             console.log("Movie: " + JSON.parse(body).Title +
                 "\nYear: " + JSON.parse(body).Year +
-                "\nRating: " + JSON.parse(body).imdbRating);
+                "\nRating: " + JSON.parse(body).imdbRating +
+                "\nRotten Tomatoes Rating: " + JSON.parse(body).tomatoRating +
+                "\nCountry: " + JSON.parse(body).Country + 
+                "\nLanguage: " + JSON.parse(body).Language + 
+                "\nPlot: " + JSON.parse(body).Plot +
+                "\nActors: " + JSON.parse(body).Actors);
+
         }
     })
 }
+
+function doThis() {
+    fs.readFile("random.txt", "utf8", function(error, data){
+        if (!error) {
+            doWhatItSaysResults = data.split(",");
+            spotifyThis(doWhatItSaysResults[0], doWhatItSaysResults[1]);
+        } else {
+            console.log("Error occurred" + error);
+        }
+    });
+};
